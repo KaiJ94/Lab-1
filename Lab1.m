@@ -40,7 +40,7 @@ sigma3_2 = norminv(1 - pb3_2);
 %For 7
 pb3_3 = 1 - cdf(logN, 7);
 sigma3_3 = norminv(1 - pb3_3);
-%It shows that when the probability of right side of lognormal distribution
+%It shows that the probability of right side of lognormal distribution
 %has a reverse relationship to sigma
 
 % Non-continuous distributions
@@ -69,7 +69,8 @@ pb4 = cdf(poisson, 7) - cdf(poisson, 5);
 %1.D
 %The probability of distribuyion is the area under its graph, we can only
 %choose the integer x value, therefore, the area(probability) is also
-%discrete.
+%discrete. This is harder for us to estimate the value outside of current
+%data and find trnd line of data set.
 %1.E
 %The mean value in poisson distribution is the expect value of random event
 %in a unit length, it doesn't mean this situation must happen.
