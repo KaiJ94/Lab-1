@@ -122,6 +122,6 @@ stats3 = [mean(ave_data) std(ave_data) var(ave_data)];
 
 %Based on the graphs and calculations, we can find that the average of two
 %Gaussian distributions is also a Gaussian distribution, and its mean and
-%std is also the average of two original Gaussian distributions. Therefore,
+%std are very closed to the average of two original Gaussian distributions. Therefore,
 %if we get a Gaussian distribution data set from lab, we may also consider
 %it can be combined by some other sub Gaussian distributions
