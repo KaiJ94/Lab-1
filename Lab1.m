@@ -1,3 +1,5 @@
+%Kai Jin
+
 % A little statistics
 %1.B
 %I try three different x values -- 1, 2 and 3 to find probability from -Inf
@@ -14,8 +16,15 @@ sigma = {norminv(0.84134), norminv(0.97725), norminv(0.9999997134)};
 x = linspace(0,10,100000);
 logN = makedist("Lognormal",'mu',0.5, 'sigma',0.8);
 %2.B
-subplot()
+figure()
+subplot(1,2,1)
+plot(x,pdf(logN,x),"LineWidth",4)
+title('Lognormal distribution')
+
+subplot(1,2,2)
 plot(x,pdf(logN,x),"LineWidth",4);
+set(gca,'YScale','log')
+title('Lognormal distribution with logY value')
 
 %3.A
 % My hypothetical measurement is at x=6 of background distribution
@@ -48,24 +57,35 @@ sigma3_3 = norminv(1 - pb3_3);
 x = 0:10;
 poisson = makedist("Poisson", 'lambda',3); 
 %1.B
+figure()
 subplot(2,2,1)
 stairs(x,pdf(poisson,x),"LineWidth",4);
 
+poisson = makedist("Poisson", 'lambda',1);
 subplot(2,2,2)
 stairs(x-0.5,pdf(poisson,x),"LineWidth",3);
 
+poisson = makedist("Poisson", 'lambda',2);
 subplot(2,2,3)
 stairs(x-5,pdf(poisson,x),"LineWidth",1);
 
+poisson = makedist("Poisson", 'lambda',4);
 subplot(2,2,4)
 stairs(x-10,pdf(poisson,x),"LineWidth",3);
-%The first parameter indicates the start point of x-axis
-%The second parameter is the distribution data
-%The third parameter add control to line width in the graph and last
-%parameter decides the line width
+%For stairs function
+    %The first parameter indicates the start point of x-axis
+    %The second parameter is the distribution data
+    %The third parameter add control to line width in the graph and last
+    %parameter decides the line width
+%For makedist function
+    %First parameter indicates type of distribution
+    %Second parameter determine the location of highest value of poisson
+    %distribution
+    %Third parameter is the exact location where the middle of highest
+    %stair. It cooperate with second parameter.
 %1.C
 %Find the probability between x=5 and x=7
-pb4 = cdf(poisson, 7) - cdf(poisson, 5);
+pb4 = cdf(poisson, 7) - cdf(poisson, 5)
 %1.D
 %The probability of distribuyion is the area under its graph, we can only
 %choose the integer x value, therefore, the area(probability) is also
@@ -73,4 +93,5 @@ pb4 = cdf(poisson, 7) - cdf(poisson, 5);
 %data and find trnd line of data set.
 %1.E
 %The mean value in poisson distribution is the expect value of random event
-%in a unit length, it doesn't mean this situation must happen.
+%that means there are more probability when it's closer to average value,
+%it doesn't mean average value situation must happen.
